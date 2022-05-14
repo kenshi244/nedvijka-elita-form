@@ -503,27 +503,36 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <form action="">
+                        <form action="" class="header__form">
                             <h3>Подбор по параметрам</h3>
                             <div class="row py-4 gx-4">
-                                <div class="col-4"><input type="text" placeholder="Тип недвижимости"></div>
+                                <div class="col-4">
+                                    <input class="header__form__input" type="text" placeholder="Тип недвижимости">
+                                </div>
                                 <div class="col-4 position-relative">
-                                    <label for="square">Площадь</label>
+                                    <label class="header__form__label" for="square">Площадь</label>
                                     <div class="square-slider__container">
                                         <div class="square-slider" id="square"></div>
                                     </div>
                                 </div>
-                                <div class="col-4"><input type="text" placeholder="Ваше имя"></div>
+                                <div class="col-4">
+                                    <input class="header__form__input" type="text" placeholder="Ваше имя">
+                                </div>
                             </div>
                             <div class="row py-2 gx-4">
                                 <div class="col-4 position-relative">
-                                    <label for="price">Цена</label>
+                                    <label for="price" class="header__form__label">Цена</label>
                                     <div class="price-slider__container">
                                         <div class="price-slider" id="price"></div>
                                     </div>
                                 </div>
-                                <div class="col-4 position-relative"><input type="text" placeholder="Ваш телефон"></div>
-                                <div class="col-4"><button type="submit">Отправить</button></div>
+                                <div class="col-4 position-relative">
+                                    <input class="header__form__input" type="text" placeholder="Ваш телефон">
+                                </div>
+                                <div class="col-4">
+                                    <button class="header__form__button" type="submit"
+                                        id="sendButton">Отправить</button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -533,6 +542,165 @@
         <main class="main">
             <div class="container-fluid">
                 <div class="row">
+                    <h2>Карта с фильтрацией</h2>
+                </div>
+                <div class="filters-and-flats__container container">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="filters__container">
+                                <form action="" class="filter__form">
+                                    <h3>Все</h3>
+                                    <h3>Квартиры</h3>
+                                    <h3>Дома</h3>
+
+                                    <h3>Цена</h3>
+                                    <div class="filter__price-slider__container">
+                                        <div id="filterPrice" class="filter__price-slider"></div>
+                                    </div>
+                                    <div class="filter__price-inputs">
+                                        <label class="filters__price-label">
+                                            <input id="input-0" type="number" class="filter__price-input" min="0" max="500"
+                                                placeholder="0">
+                                        </label>
+                                        <div class="hr"></div>
+                                        <label class="filters__price-label">
+                                            <input id="input-1" type="number" class="filter__price-input" min="0" max="500"
+                                                placeholder="500">
+                                        </label>
+                                    </div>
+                                    <div class="checkboxes">
+                                        <div class="region__checkboxes">
+                                            <h3>Районы</h3>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="region-1" id="region-1">
+                                                <label for="region-1">Замоскворечье</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="region-2" id="region-2">
+                                                <label for="region-2">Хамовники</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="region-3" id="region-3">
+                                                <label for="region-3">Патриаршие пруды</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="region-4" id="region-4">
+                                                <label for="region-4">Арбат</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="region-5" id="region-5">
+                                                <label for="region-5">Москва-Сити</label>
+                                            </div>
+                                        </div>
+                                        <div class="parking__checkboxes">
+                                            <h3>Паркинг</h3>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="parking-1" id="parking-1">
+                                                <label for="parking-1">Наземный</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="parking-2" id="parking-2">
+                                                <label for="parking-2">Подземный</label>
+                                            </div>
+                                        </div>
+                                        <div class="market__checkboxes">
+                                            <h3>Рынок</h3>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="market-1" id="market-1">
+                                                <label for="market-1">Первичный</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="market-2" id="market-2">
+                                                <label for="market-2">Вторичный</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button id="filterButton">применить</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="flats__container">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="object__container">
+                                            <div class="object__image-container">
+                                                <img src="img/flats/1.png" alt="Object image">
+                                            </div>
+                                            <h3>Чапаевский пер., д 3, «Триумф Палас»</h3>
+                                            <h4> ID 15240 / 3 комнаты / 157.10 м2 </h4>
+                                            <h5>82 000 000 ₽</h5>
+                                            <button>подробнее</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="object__container">
+                                            <div class="object__image-container">
+                                                <img src="img/flats/2.png" alt="Object image">
+                                            </div>
+                                            <h3>Чапаевский пер., д 3, «Триумф Палас»</h3>
+                                            <h4> ID 15240 / 3 комнаты / 157.10 м2 </h4>
+                                            <h5>97 000 000 ₽</h5>
+                                            <button>подробнее</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="object__container">
+                                            <div class="object__image-container">
+                                                <img src="img/flats/3.png" alt="Object image">
+                                            </div>
+                                            <h3>Чапаевский пер., д 3, «Триумф Палас»</h3>
+                                            <h4> ID 15240 / 3 комнаты / 157.10 м2 </h4>
+                                            <h5>53 200 000 ₽</h5>
+                                            <button>подробнее</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 90px">
+                                    <div class="col-4">
+                                        <div class="object__container">
+                                            <div class="object__image-container">
+                                                <img src="img/flats/1.png" alt="Object image">
+                                            </div>
+                                            <h3>Чапаевский пер., д 3, «Триумф Палас»</h3>
+                                            <h4> ID 15240 / 3 комнаты / 157.10 м2 </h4>
+                                            <h5>82 000 000 ₽</h5>
+                                            <button>подробнее</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="object__container">
+                                            <div class="object__image-container">
+                                                <img src="img/flats/2.png" alt="Object image">
+                                            </div>
+                                            <h3>Чапаевский пер., д 3, «Триумф Палас»</h3>
+                                            <h4> ID 15240 / 3 комнаты / 157.10 м2 </h4>
+                                            <h5>97 000 000 ₽</h5>
+                                            <button>подробнее</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="object__container">
+                                            <div class="object__image-container">
+                                                <img src="img/flats/3.png" alt="Object image">
+                                            </div>
+                                            <h3>Чапаевский пер., д 3, «Триумф Палас»</h3>
+                                            <h4> ID 15240 / 3 комнаты / 157.10 м2 </h4>
+                                            <h5>53 200 000 ₽</h5>
+                                            <button>подробнее</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="map"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -547,7 +715,11 @@
         integrity="sha512-T5Bneq9hePRO8JR0S/0lQ7gdW+ceLThvC80UjwkMRz+8q+4DARVZ4dqKoyENC7FcYresjfJ6ubaOgIE35irf4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="js/rangeSlider.js"></script>
+
+
+    <!-- Yandex.Maps API -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script src="js/allInit.js"></script>
 </body>
 
 </html>

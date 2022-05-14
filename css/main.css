@@ -245,11 +245,10 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 210px;
 }
 
 .price-slider__container .price-slider {
-  width: 60%;
+  width: 120px;
   margin: 25px 0;
   position: relative;
   top: 5px;
@@ -271,17 +270,16 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 210px;
 }
 
 .square-slider__container .square-slider {
-  width: 60%;
+  width: 130px;
   margin: 25px 0;
   position: relative;
   top: 5px;
 }
 
-form {
+.header__form {
   width: 683px;
   height: 267px;
   background: rgba(52, 54, 88, 0.4);
@@ -291,60 +289,69 @@ form {
   padding: 19px 33px;
 }
 
-form input {
+.header__form h3 {
+  font-family: Forum;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.header__form .header__form__input {
   border: 1px solid #ffffff;
   border-radius: 10px;
   background-color: transparent;
   padding: 13px;
-  min-width: 210px;
   color: #fff;
+  max-width: 100%;
 }
 
-form input:focus {
+.header__form .header__form__input:focus {
   border: 1px solid #EB8224;
 }
 
-form input::-webkit-input-placeholder {
+.header__form .header__form__input::-webkit-input-placeholder {
   color: #fff;
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 140%;
-  letter-spacing: 0.045em;
+  letter-spacing: 4.5%;
 }
 
-form input:-ms-input-placeholder {
+.header__form .header__form__input:-ms-input-placeholder {
   color: #fff;
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 140%;
-  letter-spacing: 0.045em;
+  letter-spacing: 4.5%;
 }
 
-form input::-ms-input-placeholder {
+.header__form .header__form__input::-ms-input-placeholder {
   color: #fff;
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 140%;
-  letter-spacing: 0.045em;
+  letter-spacing: 4.5%;
 }
 
-form input::placeholder {
+.header__form .header__form__input::placeholder {
   color: #fff;
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 140%;
-  letter-spacing: 0.045em;
+  letter-spacing: 4.5%;
 }
 
-form label {
+.header__form .header__form__label {
   position: absolute;
   top: -18px;
   left: 20px;
@@ -356,7 +363,7 @@ form label {
   letter-spacing: 0.045em;
 }
 
-form button {
+.header__form .header__form__button {
   background: linear-gradient(287deg, rgba(27, 58, 117, 0.2) 29.38%, rgba(133, 175, 255, 0.173562) 54.2%, rgba(38, 72, 137, 0.152) 74.43%), linear-gradient(88.45deg, #3A4763 1.97%, #3A4763 96.88%);
   -webkit-box-shadow: inset 0px 1.54691px 3.09382px rgba(0, 0, 0, 0.27);
           box-shadow: inset 0px 1.54691px 3.09382px rgba(0, 0, 0, 0.27);
@@ -379,9 +386,273 @@ form button {
   text-transform: uppercase;
   border-radius: 5px;
   height: 49px;
-  width: 210px;
+  width: 100%;
   text-align: center;
   margin: 0;
   padding-right: 0;
+}
+
+main {
+  background: #0C0C0C;
+  height: 2000px;
+}
+
+main h2 {
+  text-align: center;
+  font-size: 35px;
+  font-family: "Raleway";
+  padding: 30px 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.filter__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.filter__form > h3 {
+  font-family: Raleway;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 10px 0;
+  cursor: pointer;
+  -webkit-transition: .2s all ease;
+  transition: .2s all ease;
+}
+
+.filter__form > h3:hover {
+  color: #EB8224;
+}
+
+.filter__form .filter__price-slider__container {
+  margin: 10px 15px;
+  width: 100%;
+}
+
+.filter__form .filter__price-slider__container .filter__price-slider {
+  width: 75%;
+}
+
+.filter__form .filter__price-inputs {
+  margin: 10px 0;
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filter__form .filter__price-inputs .hr {
+  display: block;
+  margin: 0 10px;
+  height: 1px;
+  width: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #fff;
+}
+
+.filter__form .filter__price-inputs input {
+  background: transparent;
+  outline: none;
+  border: 1px solid #EB8224;
+  min-width: 100px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0 0 0 5px;
+  caret-color: rgba(255, 255, 255, 0.8);
+  font-family: Raleway;
+}
+
+.filter__form .filter__price-inputs input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Raleway;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.filter__form .filter__price-inputs input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Raleway;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.filter__form .filter__price-inputs input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Raleway;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.filter__form .filter__price-inputs input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Raleway;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.filter__form .checkboxes h3 {
+  font-family: Raleway;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.filter__form .checkboxes > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.filter__form .checkboxes > div input {
+  margin: 10px 0;
+}
+
+.filter__form .checkboxes .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  white-space: nowrap;
+}
+
+.filter__form .checkboxes .checkbox input {
+  width: 21px;
+  height: 21px;
+  margin: 7.5px 19px 7.5px 0;
+  background-color: tranparent;
+  border-radius: 0;
+  vertical-align: middle;
+  border: 1px solid #EB8224;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.filter__form .checkboxes .checkbox input:checked {
+  background-color: #EB8224;
+}
+
+.filter__form .checkboxes .checkbox label {
+  font-weight: 300;
+}
+
+.filter__form button {
+  color: #fff;
+  font-family: Forum;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.115em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 50%;
+  min-height: 40px;
+  border: none;
+  background: linear-gradient(287deg, rgba(27, 58, 117, 0.2) 29.38%, rgba(133, 175, 255, 0.173562) 54.2%, rgba(38, 72, 137, 0.152) 74.43%), linear-gradient(88.45deg, #3A4763 1.97%, #3A4763 96.88%);
+  -webkit-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-family: Forum;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.115em;
+  text-align: center;
+  margin: 15px 0 0 0;
+}
+
+.flats__container .object__container img {
+  min-width: 100%;
+}
+
+.flats__container .object__container h3 {
+  font-family: Forum;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0.045em;
+  text-align: left;
+  padding: 17px 0 11px 2px;
+}
+
+.flats__container .object__container h4 {
+  font-family: Forum;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0.045em;
+  text-align: left;
+  padding: 0 0 9px 2px;
+}
+
+.flats__container .object__container h5 {
+  font-family: Forum;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  text-align: left;
+  padding: 0 0 22px 2px;
+}
+
+.flats__container .object__container button {
+  color: #fff;
+  font-family: Forum;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.115em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  min-height: 50px;
+  border: none;
+  background: linear-gradient(287deg, rgba(27, 58, 117, 0.2) 29.38%, rgba(133, 175, 255, 0.173562) 54.2%, rgba(38, 72, 137, 0.152) 74.43%), linear-gradient(88.45deg, #3A4763 1.97%, #3A4763 96.88%);
+  -webkit-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-family: Forum;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.115em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  min-width: 100%;
+  padding: 40px 0;
+  height: 500px;
+  border-radius: 20px;
 }
 /*# sourceMappingURL=main.css.map */
