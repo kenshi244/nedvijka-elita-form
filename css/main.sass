@@ -2,6 +2,7 @@
 $white: #fff
 $black: #000
 $orange: #EB8224
+$orange_2: rgba(228, 143, 68, 0.8)
 
 body
     background: url(../img/background.png)
@@ -355,6 +356,24 @@ input[type=number]
                     background-color: $orange
             label
                 font-weight: 300
+
+    .category__checkboxes
+        margin: 0 0 15px 0
+        .checkbox
+            input
+                display: none
+            label
+                font-family: Raleway
+                font-size: 20px
+                font-weight: 400
+                margin: 3px 0
+                cursor: pointer
+                transition: .2s all ease
+                &:hover
+                    color: $orange_2
+                &.selected
+                    color: $orange
+
     button
         color: $white
         font-family: Forum

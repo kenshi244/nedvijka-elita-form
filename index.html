@@ -549,9 +549,25 @@
                         <div class="col-3">
                             <div class="filters__container">
                                 <form action="" class="filter__form">
-                                    <h3>Все</h3>
+
+                                    <!-- <h3>Все</h3>
                                     <h3>Квартиры</h3>
-                                    <h3>Дома</h3>
+                                    <h3>Дома</h3> -->
+
+                                    <div class="category__checkboxes">
+                                        <div class="checkbox">
+                                            <input type="checkbox" name="category-1">
+                                            <label for="category-1" class="category category__all">Все</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" name="category-2">
+                                            <label for="category-2" class="category">Квартиры</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" name="category-3">
+                                            <label for="category-3" class="category">Дома</label>
+                                        </div>
+                                    </div>
 
                                     <h3>Цена</h3>
                                     <div class="filter__price-slider__container">
@@ -559,40 +575,41 @@
                                     </div>
                                     <div class="filter__price-inputs">
                                         <label class="filters__price-label">
-                                            <input id="input-0" type="number" class="filter__price-input" min="0" max="500"
-                                                placeholder="0">
+                                            <input id="input-0" type="number" class="filter__price-input" min="0"
+                                                max="500" placeholder="0">
                                         </label>
                                         <div class="hr"></div>
                                         <label class="filters__price-label">
-                                            <input id="input-1" type="number" class="filter__price-input" min="0" max="500"
-                                                placeholder="500">
+                                            <input id="input-1" type="number" class="filter__price-input" min="0"
+                                                max="500" placeholder="500">
                                         </label>
                                     </div>
                                     <div class="checkboxes">
                                         <div class="region__checkboxes">
                                             <h3>Районы</h3>
                                             <div class="checkbox">
-                                                <input type="checkbox" name="region-1" id="region-1">
+                                                <input type="checkbox" name="region-1" id="region-1" class="region__checkbox">
                                                 <label for="region-1">Замоскворечье</label>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" name="region-2" id="region-2">
+                                                <input type="checkbox" name="region-2" id="region-2" class="region__checkbox">
                                                 <label for="region-2">Хамовники</label>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" name="region-3" id="region-3">
+                                                <input type="checkbox" name="region-3" id="region-3" class="region__checkbox">
                                                 <label for="region-3">Патриаршие пруды</label>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" name="region-4" id="region-4">
+                                                <input type="checkbox" name="region-4" id="region-4" class="region__checkbox">
                                                 <label for="region-4">Арбат</label>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" name="region-5" id="region-5">
+                                                <input type="checkbox" name="region-5" id="region-5" class="region__checkbox">
                                                 <label for="region-5">Москва-Сити</label>
                                             </div>
                                         </div>
-                                        <div class="parking__checkboxes">
+
+                                        <!-- <div class="parking__checkboxes">
                                             <h3>Паркинг</h3>
                                             <div class="checkbox">
                                                 <input type="checkbox" name="parking-1" id="parking-1">
@@ -613,7 +630,8 @@
                                                 <input type="checkbox" name="market-2" id="market-2">
                                                 <label for="market-2">Вторичный</label>
                                             </div>
-                                        </div>
+                                        </div> -->
+
                                     </div>
                                     <button id="filterButton">применить</button>
                                 </form>

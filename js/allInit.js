@@ -61,21 +61,27 @@ noUiSlider.create(filterPriceSlider, {
 
 let priceMin, priceMax, squareMin, squareMax = 0;
 
-let sendButton = document.querySelector("#sendButton");
 
-sendButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    document.getElementById("map").scrollIntoView();
-    priceMin = parseInt(price.noUiSlider.get()[0].replace(/[^0-9]/g, ''), 10);
-    priceMax = parseInt(price.noUiSlider.get()[1].replace(/[^0-9]/g, ''), 10);
-    squareMin = parseInt(square.noUiSlider.get()[0].replace(/[^0-9]/g, ''), 10);
-    squareMax = parseInt(square.noUiSlider.get()[1].replace(/[^0-9]/g, ''), 10);
-    alert(`Информация\n
-                    Минимальная площадь: ${squareMin}м²\n
-                    Максимальная площадь: ${squareMax}м²\n
-                    Минимальная цена: ${priceMin} млн. ₽\n
-                    Максимальная цена: ${priceMax} млн. ₽\n`);
-});
+let categoryCheckboxes = document.getElementsByClassName("category");
+let categoryAll = document.querySelector(".category__all");
+categoryAll.classList.add("selected");
+
+for (let i = 0; i < categoryCheckboxes.length; i++) {
+    categoryCheckboxes[i].addEventListener("click", function (event) {
+        if (event.target.classList.contains("selected")) {
+            event.target.classList.remove("selected");
+            if (!(document.querySelector(".selected"))) categoryAll.classList.add("selected");
+        } else {
+            for (let j = 0; j < categoryCheckboxes.length; j++) {
+                categoryCheckboxes[j].classList.remove("selected");
+            }
+            event.target.classList.add("selected");
+        }
+    });
+}
+
+let regionCheckboxes = document.getElementsByClassName("region__checkbox");
+let checkedCheckboxes = [];
 
 const input0 = document.getElementById("input-0");
 const input1 = document.getElementById("input-1");
@@ -99,6 +105,23 @@ inputs.forEach((element, index) => {
         setPriceSliderRange(index, event.currentTarget.value);
     });
 });
+
+let sendButton = document.querySelector("#sendButton");
+
+sendButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("map").scrollIntoView();
+    priceMin = parseInt(price.noUiSlider.get()[0].replace(/[^0-9]/g, ''), 10);
+    priceMax = parseInt(price.noUiSlider.get()[1].replace(/[^0-9]/g, ''), 10);
+    squareMin = parseInt(square.noUiSlider.get()[0].replace(/[^0-9]/g, ''), 10);
+    squareMax = parseInt(square.noUiSlider.get()[1].replace(/[^0-9]/g, ''), 10);
+    alert(`Информация\n
+                    Минимальная площадь: ${squareMin}м²\n
+                    Максимальная площадь: ${squareMax}м²\n
+                    Минимальная цена: ${priceMin} млн. ₽\n
+                    Максимальная цена: ${priceMax} млн. ₽\n`);
+});
+
 
 class Flat {
     constructor(price, square, address) {
@@ -252,11 +275,31 @@ function init() {
     mainMap.setBounds(mainGeoObjects.getBounds());
 
     // Обработчик событий для кнопки "Применить (фильтры)"
-    let button = document.querySelector("#filterButton");
-    button.addEventListener("click", function (event) {
+    let filterButton = document.querySelector("#filterButton");
+    filterButton.addEventListener("click", function (event) {
         // убираем событые по умолчанию (перезагрузка страницы) для клика по кнопке
         event.preventDefault();
-        document.getElementById("map").scrollIntoView();
+
+        for (let i = 0; i < regionCheckboxes.length; i++) {
+            if (regionCheckboxes[i].checked) {
+                checkedCheckboxes.push(document.querySelector(`label[for="${regionCheckboxes[i].id}"]`).innerHTML);
+            }
+        }
+
+        let checkedCheckboxesInnerHTML = JSON.parse(JSON.stringify(checkedCheckboxes)).join(", ");
+        
+        if(checkedCheckboxesInnerHTML === "") checkedCheckboxesInnerHTML = "Пусто";
+
+        alert("Категория: " +
+            document.querySelector(".selected").innerHTML +
+            "\nМинимальная цена: " +
+            parseInt(filterPrice.noUiSlider.get()[0].replace(/[^0-9](.+)(.{2})/g, ''), 10) +
+            "\nМаксимальная цена: " +
+            parseInt(filterPrice.noUiSlider.get()[1].replace(/[^0-9](.+)(.{2})/g, ''), 10) +
+            "\nВыбранные районы: " + checkedCheckboxesInnerHTML);
+
+
+        ///////document.getElementById("map").scrollIntoView();
         // С помощью геттера noUiSlider читаем все значения слайдеров в фильтре,
         // далее (из-за того, что с помощью библиотеки wNumb.js мы добавляем в конце чисел ₽ и кв. м.)
         // убираем с помощью регулярного выражения все знаки кроме чисел, и парсим полученное значение в число

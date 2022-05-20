@@ -565,6 +565,32 @@ input[type=number] {
   font-weight: 300;
 }
 
+.filter__form .category__checkboxes {
+  margin: 0 0 15px 0;
+}
+
+.filter__form .category__checkboxes .checkbox input {
+  display: none;
+}
+
+.filter__form .category__checkboxes .checkbox label {
+  font-family: Raleway;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 3px 0;
+  cursor: pointer;
+  -webkit-transition: .2s all ease;
+  transition: .2s all ease;
+}
+
+.filter__form .category__checkboxes .checkbox label:hover {
+  color: rgba(228, 143, 68, 0.8);
+}
+
+.filter__form .category__checkboxes .checkbox label.selected {
+  color: #EB8224;
+}
+
 .filter__form button {
   color: #fff;
   font-family: Forum;
