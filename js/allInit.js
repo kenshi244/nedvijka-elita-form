@@ -47,13 +47,13 @@ noUiSlider.create(squareSlider, {
 
 noUiSlider.create(filterPriceSlider, {
     // Значения начала и конца слайдера по умолчанию
-    start: [0, 500],
+    start: [0, 30000000],
     // Соединить две кнопки слайдера линией
     connect: true,
     // Диапазон значений
     range: {
         'min': 0,
-        'max': 500,
+        'max': 30000000,
     },
     // Шаг кнопки
     step: 1,
@@ -124,10 +124,19 @@ sendButton.addEventListener("click", function (event) {
 
 
 class Flat {
-    constructor(price, square, address) {
+    constructor(categoryName, price, region, coordinates) {
+        this.categoryName = categoryName;
         this.price = price;
-        this.square = square;
-        this.address = address;
+        this.region = region;
+        this.coordinates = coordinates;
+    }
+
+    get categoryName() {
+        return this._categoryName;
+    }
+
+    set categoryName(text) {
+        this._categoryName = text;
     }
 
     get price() {
@@ -135,54 +144,90 @@ class Flat {
     }
 
     set price(value) {
-        if (!(value < 2000 || value > 10000)) {
+        if (!(value < 0 || value > 30000000)) {
             this._price = value;
         }
     }
 
-    get square() {
-        return this._square;
+    get region() {
+        return this._region;
     }
 
-    set square(value) {
-        if (!(value < 30 || value > 500)) {
-            this._square = value;
-        }
-        return;
-    }
-
-    get address() {
-        return this._address;
-    }
-
-    set address(text) {
+    set region(text) {
         if (typeof text !== "string") {
-            this._address = text.toString();
+            this._region = text.toString();
             return;
         }
-        this._address = text;
+        this._region = text;
+    }
+
+    get coordinates() {
+        return this._coordinates;
+    }
+
+    set coordinates(arr) {
+        this._coordinates = arr;
     }
 }
 
 // Добавление новых элементов с помощью конструктора класса Flat, 
 // добавление этих элементов в массив flatsArray
-var flatsArray = [];
+let flatsArray = [];
 
-// Добавлять объекты (речь о квартирах) следует в очереди возрастания
-var flat_1 = new Flat(3000, 50, "Баррикадная улица, 2/1с1");
+let type_1 = "Коттеджы";
+let type_2 = "Танхаусы";
+let type_3 = "Квартиры";
+let type_4 = "Участок";
+
+let region_1 = "Одинцовский городской округ";
+let region_2 = "ЦАО";
+
+let address_1 = "коттеджный поселок Довиль";
+
+let flat_1 = new Flat(type_1, 5500000, region_1, [55.679316, 37.381306]);
 flatsArray.push(flat_1);
-var flat_2 = new Flat(4000, 100, "Проточный переулок, 8/2с1");
+let flat_2 = new Flat(type_1, 8500000, region_1, [55.652563, 37.243999]);
 flatsArray.push(flat_2);
-var flat_3 = new Flat(6000, 250, "улица Заморёнова, 29");
+let flat_3 = new Flat(type_1, 3715170, region_1, [55.653807, 37.243181]);
 flatsArray.push(flat_3);
-var flat_4 = new Flat(7500, 300, "Курсовой переулок, 8с2");
+let flat_4 = new Flat(type_1, 7500000, region_1, [55.653228, 37.241241]);
 flatsArray.push(flat_4);
-var flat_5 = new Flat(9000, 400, "улица Дунаевского, 8к1");
+let flat_5 = new Flat(type_2, 1415303, region_1, [55.652237, 37.244816]);
 flatsArray.push(flat_5);
+let flat_6 = new Flat(type_1, 8200000, region_1, [55.654416, 37.241277]);
+flatsArray.push(flat_6);
+let flat_7 = new Flat(type_1, 7400000, region_1, [55.654985, 37.239678]);
+flatsArray.push(flat_7);
+let flat_8 = new Flat(type_1, 1415303, region_1, [55.652720, 37.245266]);
+flatsArray.push(flat_8);
+let flat_9 = new Flat(type_1, 1415303, region_1, [55.650963, 37.244592]);
+flatsArray.push(flat_9);
+let flat_10 = new Flat(type_2, 1441839, region_1, [55.650632, 37.246254]);
+flatsArray.push(flat_10);
+let flat_11 = new Flat(type_2, 1857585, region_1, [55.649886, 37.246550]);
+flatsArray.push(flat_11);
+let flat_12 = new Flat(type_3, 1017956, region_2, [55.754177, 37.598519]);
+flatsArray.push(flat_12);
+let flat_13 = new Flat(type_3, 1146108, region_2, [55.753439, 37.598898]);
+flatsArray.push(flat_13);
+let flat_14 = new Flat(type_4, 2600000, region_1, [55.687949, 37.396236]);
+flatsArray.push(flat_14);
+let flat_15 = new Flat(type_1, 5041016, region_1, [55.649891, 37.247601]);
+flatsArray.push(flat_15);
+let flat_16 = new Flat(type_3, 2919062, region_1, [55.679935, 37.385780]);
+flatsArray.push(flat_16);
+let flat_17 = new Flat(type_1, 6500000, region_1, [55.649652, 37.248203]);
+flatsArray.push(flat_17);
+let flat_18 = new Flat(type_1, 30000000, region_1, [55.649500, 37.249578]);
+flatsArray.push(flat_18);
+let flat_19 = new Flat(type_3, 1220698, region_1, [55.652735, 37.252156]);
+flatsArray.push(flat_19);
+let flat_20 = new Flat(type_1, 3750000, region_1, [55.650241, 37.252021]);
+flatsArray.push(flat_20);
 
-var mapsFlatsArray = [];
+let mapsFlatsArray = [];
 
-var mainGeoObjects = [];
+let mainGeoObjects = [];
 
 function init() {
 
@@ -192,14 +237,11 @@ function init() {
     // Присваиваем каждому элементу массива геометок квартир метод создания новой метки
 
     // В массив необходимо записать координаты метки (в квадратные скобки)
-    mapsFlatsArray[0] = new ymaps.Placemark([55.759583, 37.583041], {
+    /* mapsFlatsArray[0] = new ymaps.Placemark(flatsArray[0].coordinates, {
         // Текст при наведении мышью на метку
         hintContent: 'Квартира №1',
         // Контент, отображаемый при клике на метку (можно стилизировать)
-        balloonContentBody: `Цена квартиры: ${flatsArray[0].price}₽,<br>
-        Площадь квартиры: ${flatsArray[0].square} кв. м.<br>
-        Адрес квартиры: ${flatsArray[0].address}<br>
-        <a href="https://google.com" target="_blank">Снять квартиру</a>`,
+
     }, {
         iconLayout: 'default#image',
         // Путь до иконки метки
@@ -208,59 +250,21 @@ function init() {
         iconImageSize: [45, 45],
         // Смещение "ножки" метки при увеличении масштаба
         iconImageOffset: [-35, -35]
-    });
-    mapsFlatsArray[1] = new ymaps.Placemark([55.750601, 37.580418], {
-        hintContent: 'Квартира №2',
-        balloonContentBody: `Цена квартиры: ${flatsArray[1].price}₽,<br>
-        Площадь квартиры: ${flatsArray[1].square} кв. м.,<br>
-        Адрес квартиры: ${flatsArray[1].address}<br>
-        <a href="https://google.com" target="_blank">Снять квартиру</a>`,
-    }, {
-        iconLayout: 'default#image',
-        iconImageHref: 'assets/icon.png',
-        iconImageSize: [45, 45],
-        iconImageOffset: [-35, -35]
-    });
-    mapsFlatsArray[2] = new ymaps.Placemark([55.760930, 37.566350], {
-        hintContent: 'Квартира №3',
-        balloonContentBody: `Цена квартиры: ${flatsArray[2].price}₽,<br>
-        Площадь квартиры: ${flatsArray[2].square} кв. м.,<br>
-        Адрес квартиры: ${flatsArray[2].address}<br>
-        <a href="https://google.com" target="_blank">Снять квартиру</a>`,
-    }, {
-        iconLayout: 'default#image',
-        iconImageHref: 'assets/icon.png',
-        iconImageSize: [45, 45],
-        iconImageOffset: [-35, -35]
-    });
-    mapsFlatsArray[3] = new ymaps.Placemark([55.740988, 37.604655], {
-        hintContent: 'Квартира №4',
-        balloonContentBody: `Цена квартиры: ${flatsArray[3].price}₽, <br>
-        Площадь квартиры: ${flatsArray[3].square} кв. м.,<br> 
-        Адрес квартиры: ${flatsArray[3].address}<br>
-        <a href="https://google.com" target="_blank">Снять квартиру</a>`,
-    }, {
-        iconLayout: 'default#image',
-        iconImageHref: 'assets/icon.png',
-        iconImageSize: [45, 45],
-        iconImageOffset: [-35, -35]
-    });
-    mapsFlatsArray[4] = new ymaps.Placemark([55.740912, 37.547558], {
-        hintContent: 'Квартира №4',
-        balloonContentBody: `Цена квартиры: ${flatsArray[4].price}₽, <br> 
-        Площадь квартиры: ${flatsArray[4].square} кв. м.,<br>
-        Адрес квартиры: ${flatsArray[4].address}<br>
-        <a href="https://google.com" target="_blank">Снять квартиру</a>`,
-    }, {
-        iconLayout: 'default#image',
-        iconImageHref: 'assets/icon.png',
-        iconImageSize: [45, 45],
-        iconImageOffset: [-35, -35]
-    });
+    }); */
+
+
+    for (let i = 0; i < flatsArray.length; i++) {
+        mapsFlatsArray.push(new ymaps.Placemark(flatsArray[i].coordinates, {}, {
+            iconLayout: 'default#image',
+            iconImageHref: 'assets/icon.png',
+            iconImageSize: [45, 45],
+            iconImageOffset: [-35, -35]
+        }));
+    }
 
     // Создаём карту
-    var mainMap = new ymaps.Map("map", {
-        center: [55.759583, 37.583041],
+    let mainMap = new ymaps.Map("map", {
+        center: [55.679316, 37.381306],
         zoom: 12,
     });
 
@@ -279,7 +283,7 @@ function init() {
     filterButton.addEventListener("click", function (event) {
         // убираем событые по умолчанию (перезагрузка страницы) для клика по кнопке
         event.preventDefault();
-
+        checkedCheckboxes = [];
         for (let i = 0; i < regionCheckboxes.length; i++) {
             if (regionCheckboxes[i].checked) {
                 checkedCheckboxes.push(document.querySelector(`label[for="${regionCheckboxes[i].id}"]`).innerHTML);
@@ -287,8 +291,8 @@ function init() {
         }
 
         let checkedCheckboxesInnerHTML = JSON.parse(JSON.stringify(checkedCheckboxes)).join(", ");
-        
-        if(checkedCheckboxesInnerHTML === "") checkedCheckboxesInnerHTML = "Пусто";
+
+        if (checkedCheckboxesInnerHTML === "") checkedCheckboxesInnerHTML = "Пусто";
 
         alert("Категория: " +
             document.querySelector(".selected").innerHTML +
@@ -299,20 +303,32 @@ function init() {
             "\nВыбранные районы: " + checkedCheckboxesInnerHTML);
 
 
-        ///////document.getElementById("map").scrollIntoView();
+        ////document.getElementById("map").scrollIntoView();
         // С помощью геттера noUiSlider читаем все значения слайдеров в фильтре,
         // далее (из-за того, что с помощью библиотеки wNumb.js мы добавляем в конце чисел ₽ и кв. м.)
         // убираем с помощью регулярного выражения все знаки кроме чисел, и парсим полученное значение в число
-        priceMin = parseInt(price.noUiSlider.get()[0].replace(/[^0-9]/g, ''), 10);
-        priceMax = parseInt(price.noUiSlider.get()[1].replace(/[^0-9]/g, ''), 10);
-        squareMin = parseInt(square.noUiSlider.get()[0].replace(/[^0-9]/g, ''), 10);
-        squareMax = parseInt(square.noUiSlider.get()[1].replace(/[^0-9]/g, ''), 10);
+        priceMin = parseInt(filterPrice.noUiSlider.get()[0].replace(/[^0-9](.+)(.{2})/g, ''), 10);
+        priceMax = parseInt(filterPrice.noUiSlider.get()[1].replace(/[^0-9](.+)(.{2})/g, ''), 10);
 
         for (let i = 0; i < flatsArray.length; i++) {
             // В if надо прописать условия, при котором метка будет добавлена/останется на карте⁡
-            if (!(flatsArray[i].price < priceMin || flatsArray[i].price > priceMax ||
-                    flatsArray[i].square < squareMin || flatsArray[i].square > squareMax)) {
-                mainGeoObjects.add(mapsFlatsArray[i]);
+            if (!(flatsArray[i].price < priceMin || flatsArray[i].price > priceMax)) {
+                if (document.querySelector(".selected").innerHTML === "Все" ||
+                    flatsArray[i].categoryName === document.querySelector(".selected").innerHTML) {
+                    for (let j = 0; j < checkedCheckboxes.length; j++) {
+                        if (flatsArray[i].region === checkedCheckboxes[j]) {
+                            mainGeoObjects.add(mapsFlatsArray[i]);
+                            console.log("Added");
+                        } else {
+                            mainGeoObjects.add(mapsFlatsArray[i]);
+                            mainGeoObjects.remove(mapsFlatsArray[i]);
+                            console.log("Removed");
+                        }
+                    }
+                } else {
+                    mainGeoObjects.add(mapsFlatsArray[i]);
+                    mainGeoObjects.remove(mapsFlatsArray[i]);
+                }
             } else {
                 mainGeoObjects.add(mapsFlatsArray[i]);
                 mainGeoObjects.remove(mapsFlatsArray[i]);
