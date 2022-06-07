@@ -106,7 +106,7 @@ inputs.forEach((element, index) => {
     });
 });
 
-let sendButton = document.querySelector("#sendButton");
+let Button = document.querySelector("#sendButton");
 
 sendButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -115,11 +115,13 @@ sendButton.addEventListener("click", function (event) {
     priceMax = parseInt(price.noUiSlider.get()[1].replace(/[^0-9]/g, ''), 10);
     squareMin = parseInt(square.noUiSlider.get()[0].replace(/[^0-9]/g, ''), 10);
     squareMax = parseInt(square.noUiSlider.get()[1].replace(/[^0-9]/g, ''), 10);
-    alert(`Информация\n
-                    Минимальная площадь: ${squareMin}м²\n
+    /* alert(`Информация\n
+                    Минимальная площадь: ${squareMin}м²\n   
                     Максимальная площадь: ${squareMax}м²\n
                     Минимальная цена: ${priceMin} млн. ₽\n
-                    Максимальная цена: ${priceMax} млн. ₽\n`);
+                    Максимальная цена: ${priceMax} млн. ₽\n`); */
+    
+    window.open(`http://project5569567.tilda.ws/page27951809.html?tfc_price:max[451485822]=${priceMax}&tfc_price:min[451485822]=${priceMin}&tfc_div=:::`);
 });
 
 
@@ -334,7 +336,6 @@ function init() {
                 mainGeoObjects.remove(mapsFlatsArray[i]);
             }
         }
-
         // Метод для перерисовки карты
         mainMap.container.fitToViewport();
     });
